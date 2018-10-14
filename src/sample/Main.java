@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Cliente.fxml"));
         primaryStage.setTitle("RMI CLIENT World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
