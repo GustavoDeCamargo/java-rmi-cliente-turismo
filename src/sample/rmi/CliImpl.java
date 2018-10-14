@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 //Assinado a dupla: Brenno, Gustavo e Mateus.
-package sample;
+package sample.rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -13,8 +13,8 @@ import java.rmi.server.UnicastRemoteObject;
  *
  * @author a1834240
  */
-public class CliImpl extends UnicastRemoteObject implements InterfaceCli{
-    InterfaceServ serv = null;
+public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
+    InterfaceServ serv;
 
     public CliImpl(InterfaceServ serv)throws RemoteException {
         this.serv = serv;
@@ -22,7 +22,8 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli{
     
     
     public void hello()throws RemoteException{
-        serv.chamar("Hello World Client", this);
+        // Registrar interesse
+        serv.registrarInteresse("FDP", this);
     }
     
     @Override

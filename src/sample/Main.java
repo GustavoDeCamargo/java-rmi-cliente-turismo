@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.rmi.CliImpl;
+import sample.rmi.InterfaceServ;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

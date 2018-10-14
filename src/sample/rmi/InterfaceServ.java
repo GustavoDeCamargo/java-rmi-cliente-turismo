@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package sample.rmi;
 
-package sample;
+import sample.rmi.InterfaceCli;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -13,9 +14,8 @@ import java.rmi.RemoteException;
  *
  * @author a1834240
  */
-public interface InterfaceCli extends Remote {
-    
-    public void echo(String str)throws RemoteException;
-    
-}
+public interface InterfaceServ extends Remote  {
 
+
+    public void registrarInteresse(String string,  InterfaceCli cli)throws RemoteException;
+}
