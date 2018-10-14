@@ -22,7 +22,7 @@ public class Main extends Application {
 
         Registry rg = LocateRegistry.getRegistry(1099);
 
-        CliImpl com = new CliImpl((InterfaceServ)rg.lookup("god"));
+        CliImpl com = new CliImpl((InterfaceServ)rg.lookup("Servidor"));
 
 
         com.hello();

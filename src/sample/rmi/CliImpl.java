@@ -6,6 +6,8 @@
 //Assinado a dupla: Brenno, Gustavo e Mateus.
 package sample.rmi;
 
+import java.rmi.AlreadyBoundException;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -21,14 +23,13 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     }
     
     
-    public void hello()throws RemoteException{
-        // Registrar interesse
-        serv.registrarInteresse("FDP", this);
+    public void hello() throws RemoteException, AlreadyBoundException, NotBoundException {
+        serv.registrarInteresse("São Paulo", this);
     }
-    
+
     @Override
-    public void echo(String str) {
-        System.out.println("Recebido: " + str);
+    public void notificar(String str) throws RemoteException {
+        // Você implementa esse método gus
+        System.out.println("RECEBIDO NO CLIENTE " + str);
     }
-    
 }
