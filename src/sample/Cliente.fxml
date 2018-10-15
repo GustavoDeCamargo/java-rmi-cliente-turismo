@@ -74,17 +74,23 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <SplitMenuButton layoutX="522.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Destino">
+      <SplitMenuButton fx:id="destinoInteresse" layoutX="526.0" layoutY="229.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Destino">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
       </SplitMenuButton>
-      <JFXTextField layoutX="522.0" layoutY="215.0" prefHeight="25.0" prefWidth="285.0" promptText="Preço Máximo" />
+      <JFXTextField fx:id="precoMaximo" layoutX="526.0" layoutY="282.0" prefHeight="25.0" prefWidth="285.0" promptText="Preço Máximo" />
       <Text layoutX="563.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receber Notificação">
          <font>
             <Font size="23.0" />
          </font>
       </Text>
+      <SplitMenuButton fx:id="origemInteresse" layoutX="526.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Origem">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
    </children>
 </AnchorPane>
