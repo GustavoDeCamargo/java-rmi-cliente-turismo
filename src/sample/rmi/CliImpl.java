@@ -6,7 +6,9 @@
 //Assinado a dupla: Brenno, Gustavo e Mateus.
 package sample.rmi;
 
+import sample.Passagem;
 import sample.Retorno;
+import sample.Voo;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
@@ -25,9 +27,12 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     }
     
     
-    public void hello() throws RemoteException, AlreadyBoundException, NotBoundException {
-        Retorno r =  serv.consultar();
-        System.out.println(r.getVoos().get(0).getNome());
+    public void consultarServidor(String tipoConsulta) throws RemoteException, AlreadyBoundException, NotBoundException {
+        Passagem p = new Passagem();
+        Voo v = new Voo(null, "São Paulo", "Curitiba", null, "2018-10-31", null);
+
+        Retorno r =  serv.consultar(tipoConsulta,null);
+        System.out.println(r.getVoos().get(1).getNome());
     }
 
     @Override

@@ -25,7 +25,7 @@ public class Main extends Application {
         CliImpl com = new CliImpl((InterfaceServ)rg.lookup("Servidor"));
 
 
-        com.hello();
+        com.consultarServidor("Voos");
     }
 
 
