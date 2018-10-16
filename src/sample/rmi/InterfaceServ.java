@@ -5,7 +5,7 @@
  */
 package sample.rmi;
 
-import sample.rmi.InterfaceCli;
+import sample.Retorno;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
@@ -20,4 +20,6 @@ public interface InterfaceServ extends Remote  {
 
 
     public void registrarInteresse(String string,  InterfaceCli cli) throws RemoteException, AlreadyBoundException, NotBoundException;
+
+    public Retorno consultar() throws RemoteException;
 }
