@@ -14,6 +14,7 @@ import java.rmi.AlreadyBoundException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 /**
  *
@@ -27,11 +28,9 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     }
     
     
-    public void consultarServidor(String tipoConsulta) throws RemoteException, AlreadyBoundException, NotBoundException {
-        Passagem p = new Passagem();
-        Voo v = new Voo(null, "São Paulo", "Curitiba", null, "2018-10-31", null);
+    public void consultarServidor(String tipoConsulta,Passagem p) throws RemoteException, AlreadyBoundException, NotBoundException {
 
-        Retorno r =  serv.consultar(tipoConsulta,null);
+        Retorno r =  serv.consultar(tipoConsulta,p);
         System.out.println(r.getVoos().get(1).getNome());
     }
 
@@ -39,5 +38,9 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     public void notificar(String str) throws RemoteException {
         // Você implementa esse método gus
         System.out.println("RECEBIDO NO CLIENTE " + str);
+    }
+
+    public List<String> getCidadesFromServer() throws RemoteException {
+        return serv.GetCidades();
     }
 }

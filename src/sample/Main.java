@@ -19,13 +19,6 @@ public class Main extends Application {
         primaryStage.setTitle("Java RMI Cliente");
         primaryStage.setScene(new Scene(root, 834, 542));
         primaryStage.show();
-
-        Registry rg = LocateRegistry.getRegistry(1099);
-
-        CliImpl com = new CliImpl((InterfaceServ)rg.lookup("Servidor"));
-
-
-        com.consultarServidor("Voos");
     }
 
 
