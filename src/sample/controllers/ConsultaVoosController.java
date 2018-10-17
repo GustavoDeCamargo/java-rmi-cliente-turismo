@@ -19,7 +19,7 @@ import static sample.Main.VOLTA;
 public class ConsultaVoosController {
 
     @FXML
-    public TableView tabelaIda, tabelaVolta;
+    public TableView<Voo> tabelaIda, tabelaVolta;
 
     @FXML
     public TableColumn volta_nomeColum, volta_origemColum, volta_destinoColum, volta_precoColum, volta_capacidadeColum,

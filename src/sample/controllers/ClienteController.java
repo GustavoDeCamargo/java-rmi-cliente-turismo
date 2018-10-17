@@ -106,7 +106,7 @@ public class ClienteController {
 
     }
     public void demonstrarInteresse() throws RemoteException, NotBoundException, AlreadyBoundException {
-        Interesse i = new Interesse(null,null,1,
+        Interesse i = new Interesse(null,null,2,
                 i_origem.getValue(),i_destino.getValue(),Double.parseDouble(i_precoMaximo.getText()));
          com.registrarInteresse(i);
     }
