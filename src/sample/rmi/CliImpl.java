@@ -28,10 +28,8 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     }
     
     
-    public void consultarServidor(String tipoConsulta,Passagem p) throws RemoteException, AlreadyBoundException, NotBoundException {
-
-        Retorno r =  serv.consultar(tipoConsulta,p);
-        System.out.println(r.getVoos().get(1).getNome());
+    public Retorno consultarServidor(String tipoConsulta,Passagem p) throws RemoteException, AlreadyBoundException, NotBoundException {
+        return serv.consultar(tipoConsulta,p);
     }
 
     @Override
