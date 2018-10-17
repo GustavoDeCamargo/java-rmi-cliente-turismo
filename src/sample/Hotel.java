@@ -1,6 +1,9 @@
-package sample.models;
+package sample;
 
-public class Hotel {
+import java.io.Serializable;
+
+public class Hotel implements Serializable {
+    private static final long serialVersionUID = 8367908553994431734L;
     private Integer id;
     private String nome;
     private String local;

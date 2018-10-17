@@ -1,7 +1,6 @@
 package sample;
 
 
-import sample.models.Hotel;
 import sample.models.Pacote;
 
 import java.util.List;

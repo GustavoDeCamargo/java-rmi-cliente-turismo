@@ -1,5 +1,6 @@
 package sample.models;
 
+import sample.Hospedagem;
 import sample.Passagem;
 
 public class Pacote {

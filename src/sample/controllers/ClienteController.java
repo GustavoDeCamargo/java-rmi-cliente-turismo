@@ -7,9 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.*;
 import sample.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
@@ -30,20 +28,29 @@ import java.util.List;
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 import static sample.Main.IDA;
 import static sample.Main.VOLTA;
+import static sample.Main.HOTEIS;
+import static sample.Main.HOSPEDAGEM;
+import static sample.rmi.CliImpl.ID_NOME;
 
 public class ClienteController {
 
     @FXML
-    JFXTextField p_num_pessoas,i_precoMaximo;
+    JFXTextField p_num_pessoas,i_precoMaximo,h_num_quartos,h_num_pessoas;
 
     @FXML
-    JFXDatePicker p_data_volta,p_data_ida;
+    JFXDatePicker p_data_volta,p_data_ida,h_data_entrada,h_data_saida;
 
     @FXML
     ComboBox<String> p_origem,p_destino,h_cidade,i_origem,i_destino;
 
     @FXML
-    CheckBox p_somente_ida;
+    CheckBox p_somente_ida,i_passagem,i_hospedagem,i_pacote;
+
+    @FXML
+    TableColumn i_origemColum,i_destinoColum,i_precoColum;
+
+    @FXML
+    TableView<Interesse> tabelaInteresse;
 
     public static CliImpl COM;
 
@@ -66,7 +73,7 @@ public class ClienteController {
         p.setNumero_pessoas(Integer.parseInt(p_num_pessoas.getText()));
 
 
-        Retorno r = COM.consultarServidor("Passagem",p);
+        Retorno r = COM.consultarServidor("Passagem",p,null);
 
         List<Voo> listaIda = new ArrayList<>();
         List<Voo> listaIdaVolta = new ArrayList<>();
@@ -88,28 +95,37 @@ public class ClienteController {
                 }
 
             }
-
-//            System.out.println(voo.getNome());
-//            System.out.println(voo.getOrigem());
-//            System.out.println(voo.getDestino());
-//            System.out.println(voo.getData_ida());
-//            System.out.println(voo.getData_volta());
-//            System.out.println(voo.getCapacidade());
         }
         IDA = listaIda;
         VOLTA = listaIdaVolta;
 
     }
-    public void consultarHospedagem(){
+    public void consultarHospedagem() throws RemoteException, NotBoundException, AlreadyBoundException {
+        Hospedagem hospedagem = new Hospedagem("",h_cidade.getValue(),Integer.parseInt(h_num_quartos.getText()),Integer.parseInt(h_num_pessoas.getText()));
+        hospedagem.setData_entrada(h_data_entrada.getValue().format(ISO_LOCAL_DATE));
+        hospedagem.setData_saida(h_data_saida.getValue().format(ISO_LOCAL_DATE));
+        HOSPEDAGEM = hospedagem;
+        HOTEIS = COM.consultarServidor("Hospedagem",null,hospedagem).getHoteis();
         Main.changeScreen("ConsultaHospedagem");
     }
     public void consultarPacote(){
 
     }
     public void demonstrarInteresse() throws RemoteException, NotBoundException, AlreadyBoundException {
-        Interesse i = new Interesse(null,null,2,
+        Integer tipo_interesse;
+        if (i_passagem.isSelected())
+            tipo_interesse = 1;
+        else if(i_hospedagem.isSelected())
+            tipo_interesse = 2;
+        else if(i_pacote.isSelected())
+            tipo_interesse = 3;
+        else
+            tipo_interesse = 4;
+        Interesse i = new Interesse(null,null,tipo_interesse,
                 i_origem.getValue(),i_destino.getValue(),Double.parseDouble(i_precoMaximo.getText()));
         COM.registrarInteresse(i);
+
+        atualizarInteresses();
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -128,6 +144,18 @@ public class ClienteController {
         this.consultaVoosController = consultaVoosController;
     }
 
-    public void retirarInteresse(ActionEvent actionEvent) {
+    public void retirarInteresse(ActionEvent actionEvent) throws RemoteException {
+       Interesse interesse =  tabelaInteresse.getSelectionModel().getSelectedItem();
+       COM.deleteInteresse(interesse.getId());
+       atualizarInteresses();
+    }
+
+    public void atualizarInteresses() throws RemoteException {
+        tabelaInteresse.getItems().clear();
+        List<Interesse> interesses = COM.getInteressesCliente(ID_NOME);
+        i_origemColum.setCellValueFactory(new PropertyValueFactory<>("origem"));
+        i_destinoColum.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        i_precoColum.setCellValueFactory(new PropertyValueFactory<>("preco_maximo"));
+        tabelaInteresse.getItems().addAll(FXCollections.observableArrayList(interesses));
     }
 }

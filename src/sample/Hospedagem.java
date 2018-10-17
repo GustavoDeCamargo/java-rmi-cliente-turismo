@@ -1,13 +1,14 @@
-package sample.models;
+package sample;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Hospedagem {
+public class Hospedagem implements Serializable {
+    private static final long serialVersionUID = 8367908553994431734L;
     private Integer id;
     private String hotel;
     private String destino;
-    private Date data_entrada;
-    private Date data_saida;
+    private String data_entrada;
+    private String data_saida;
     private Integer numero_quartos;
     private Integer numero_pessoas;
     private Integer preco;
@@ -56,19 +57,19 @@ public class Hospedagem {
         this.preco = preco;
     }
 
-    public Date getData_entrada() {
+    public String getData_entrada() {
         return data_entrada;
     }
 
-    public void setData_entrada(Date data_entrada) {
+    public void setData_entrada(String data_entrada) {
         this.data_entrada = data_entrada;
     }
 
-    public Date getData_saida() {
+    public String getData_saida() {
         return data_saida;
     }
 
-    public void setData_saida(Date data_saida) {
+    public void setData_saida(String data_saida) {
         this.data_saida = data_saida;
     }
 

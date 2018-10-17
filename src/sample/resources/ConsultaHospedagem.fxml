@@ -2,13 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ConsultaHospedagemController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ConsultaHospedagemController">
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="694.0" prefWidth="834.0">
          <children>
@@ -34,6 +35,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></JFXButton>
+            <Button layoutX="632.0" layoutY="21.0" mnemonicParsing="false" onAction="#atualizar" text="Atualizar" />
          </children>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

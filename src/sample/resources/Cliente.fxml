@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ClienteController">
    <children>
       <JFXTextField id="num_pessoas" fx:id="p_num_pessoas" layoutX="38.0" layoutY="373.0" prefHeight="25.0" prefWidth="177.0" promptText="Numero de pessoas" />
       <Text layoutX="305.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta Cliente">
@@ -63,7 +63,7 @@
       <ComboBox fx:id="h_cidade" layoutX="290.0" layoutY="109.0" prefHeight="25.0" prefWidth="191.0" promptText="Cidade" />
       <ComboBox fx:id="i_origem" layoutX="525.0" layoutY="109.0" prefHeight="25.0" prefWidth="285.0" promptText="Origem" />
       <ComboBox fx:id="i_destino" layoutX="526.0" layoutY="162.0" prefHeight="25.0" prefWidth="285.0" promptText="Destino" />
-      <TableView layoutX="522.0" layoutY="261.0" prefHeight="121.0" prefWidth="292.0">
+      <TableView fx:id="tabelaInteresse" layoutX="522.0" layoutY="261.0" prefHeight="121.0" prefWidth="292.0">
         <columns>
           <TableColumn fx:id="i_origemColum" prefWidth="122.0" text="Origem" />
           <TableColumn fx:id="i_destinoColum" prefWidth="105.0" text="Destino" />

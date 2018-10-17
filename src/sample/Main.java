@@ -21,6 +21,9 @@ public class Main extends Application {
 
     public static List<Voo> IDA;
     public static List<Voo> VOLTA;
+    public static List<Hotel> HOTEIS;
+
+    public static Hospedagem HOSPEDAGEM;
 
 
     @Override
