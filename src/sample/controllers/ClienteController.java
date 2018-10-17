@@ -120,6 +120,43 @@ public class ClienteController {
         HOSPEDAGEM = hospedagem;
         HOTEIS = COM.consultarServidor("Hospedagem",null,hospedagem).getHoteis();
 
+        // Origem,Destino e data ida do Voo
+        // Voo e numeroPessoas da Passagem
+        Passagem p = new Passagem();
+        String data_volta = null;
+        if(!p_somente_ida.isSelected())
+            data_volta = p_data_volta.getValue().format(ISO_LOCAL_DATE);
+
+        Voo v = new Voo(null, p_origem.getValue(), p_destino.getValue(), null, p_data_ida.getValue().format(ISO_LOCAL_DATE), data_volta);
+        p.setVoo(v);
+        p.setNumero_pessoas(Integer.parseInt(p_num_pessoas.getText()));
+
+
+        Retorno r = COM.consultarServidor("Passagem",p,null);
+
+        List<Voo> listaIda = new ArrayList<>();
+        List<Voo> listaIdaVolta = new ArrayList<>();
+
+        for (Voo voo:r.getVoos()) {
+            // todos os voos retornados na consulta - 2 listas, voo de ida e de volta - printar na tabela
+            // TODO LOGIC HERE TO DISPLAY
+
+            if(p_somente_ida.isSelected() && data_volta == null) {
+                listaIda.add(voo);
+            }
+            else{
+                if(voo.getData_ida().equals(data_volta) || voo.getData_volta().equals(data_volta))
+                {
+                    listaIdaVolta.add(voo);
+                }
+                else if(voo.getData_ida().equals(v.getData_ida()) || voo.getData_volta().equals(v.getData_volta())){
+                    listaIda.add(voo);
+                }
+
+            }
+        }
+        IDA = listaIda;
+        VOLTA = listaIdaVolta;
 
         Main.changeScreen("ConsultaPacote");
     }

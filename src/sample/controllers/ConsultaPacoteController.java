@@ -7,14 +7,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sample.Hotel;
-import sample.Voo;
+import sample.*;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
-import static sample.Main.HOTEIS;
-import static sample.Main.IDA;
-import static sample.Main.VOLTA;
+import static sample.Main.*;
+import static sample.Main.HOSPEDAGEM;
+import static sample.controllers.ClienteController.COM;
 
 public class ConsultaPacoteController {
 
@@ -75,4 +76,30 @@ public class ConsultaPacoteController {
         tabelaVolta.getItems().addAll(FXCollections.observableArrayList(voos));
     }
 
+    public void voltarTela(ActionEvent actionEvent) {
+        Main.changeScreen("Back");
+    }
+
+    public void comprarPacote(ActionEvent actionEvent) throws RemoteException {
+        Hotel hotel = tabelaHospedagem.getSelectionModel().getSelectedItem();
+        Hospedagem hospedagem = new Hospedagem(hotel.getNome(),hotel.getLocal(),HOSPEDAGEM.getNumero_quartos(),HOSPEDAGEM.getNumero_pessoas());
+        hospedagem.setData_entrada(HOSPEDAGEM.getData_entrada());
+        hospedagem.setData_saida(HOSPEDAGEM.getData_saida());
+        COM.comprarHospedagem(hospedagem);
+
+        Voo v = tabelaIda.getSelectionModel().getSelectedItem();
+        Voo v2 = tabelaVolta.getSelectionModel().getSelectedItem();
+        List<Voo> voos = new ArrayList<>();
+        voos.add(v);
+        voos.add(v2);
+        for (Voo voo:voos) {
+            if(voo != null)
+            {
+                Passagem p = new Passagem();
+                p.setVoo(voo);
+                COM.comprarPassagem(p);
+            }
+        }
+
+    }
 }
