@@ -3,6 +3,7 @@ package sample.controllers;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,7 +45,7 @@ public class ClienteController {
     @FXML
     CheckBox p_somente_ida;
 
-    CliImpl com;
+    public static CliImpl COM;
 
     ConsultaVoosController consultaVoosController;
 
@@ -65,7 +66,7 @@ public class ClienteController {
         p.setNumero_pessoas(Integer.parseInt(p_num_pessoas.getText()));
 
 
-        Retorno r = com.consultarServidor("Passagem",p);
+        Retorno r = COM.consultarServidor("Passagem",p);
 
         List<Voo> listaIda = new ArrayList<>();
         List<Voo> listaIdaVolta = new ArrayList<>();
@@ -85,6 +86,7 @@ public class ClienteController {
                 else if(voo.getData_ida().equals(v.getData_ida()) || voo.getData_volta().equals(v.getData_volta())){
                     listaIda.add(voo);
                 }
+
             }
 
 //            System.out.println(voo.getNome());
@@ -97,9 +99,6 @@ public class ClienteController {
         IDA = listaIda;
         VOLTA = listaIdaVolta;
 
-        System.out.println(IDA);
-        System.out.println(VOLTA);
-
     }
     public void consultarHospedagem(){
         Main.changeScreen("ConsultaHospedagem");
@@ -110,14 +109,14 @@ public class ClienteController {
     public void demonstrarInteresse() throws RemoteException, NotBoundException, AlreadyBoundException {
         Interesse i = new Interesse(null,null,2,
                 i_origem.getValue(),i_destino.getValue(),Double.parseDouble(i_precoMaximo.getText()));
-         com.registrarInteresse(i);
+        COM.registrarInteresse(i);
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() throws RemoteException, NotBoundException {
         Registry rg = LocateRegistry.getRegistry(1099);
-        com = new CliImpl((InterfaceServ)rg.lookup("Servidor"));
-        List<String> cidades = com.getCidadesFromServer();
+        COM = new CliImpl((InterfaceServ)rg.lookup("Servidor"));
+        List<String> cidades = COM.getCidadesFromServer();
         p_origem.setItems(FXCollections.observableArrayList((cidades)));
         p_destino.setItems(FXCollections.observableArrayList((cidades)));
         h_cidade.setItems(FXCollections.observableArrayList((cidades)));
@@ -127,5 +126,8 @@ public class ClienteController {
 
     public void setConsultaVoosController(ConsultaVoosController consultaVoosController) {
         this.consultaVoosController = consultaVoosController;
+    }
+
+    public void retirarInteresse(ActionEvent actionEvent) {
     }
 }

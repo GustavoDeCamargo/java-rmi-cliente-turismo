@@ -10,6 +10,8 @@ public class Voo implements Serializable {
     private Integer capacidade;
     private String data_ida;
     private String data_volta;
+    private Integer vendidos;
+    private Double preco;
 
     public Voo(String nome, String origem, String destino, Integer capacidade, String data_ida, String data_volta) {
         this.nome = nome;
@@ -66,5 +68,21 @@ public class Voo implements Serializable {
 
     public void setData_volta(String data_volta) {
         this.data_volta = data_volta;
+    }
+
+    public Integer getVendidos() {
+        return vendidos;
+    }
+
+    public void setVendidos(Integer vendidos) {
+        this.vendidos = vendidos;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 }

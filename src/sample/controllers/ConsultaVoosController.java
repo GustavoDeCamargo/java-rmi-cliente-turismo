@@ -10,12 +10,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
+import sample.Passagem;
 import sample.Voo;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static sample.Main.IDA;
 import static sample.Main.VOLTA;
+import static sample.controllers.ClienteController.COM;
 
 
 public class ConsultaVoosController {
@@ -31,7 +35,20 @@ public class ConsultaVoosController {
     @FXML
     JFXButton botaoComprarPassagem;
 
-    public void comprarPassagem(ActionEvent actionEvent) {
+    public void comprarPassagem(ActionEvent actionEvent) throws RemoteException {
+        Voo v = tabelaIda.getSelectionModel().getSelectedItem();
+        Voo v2 = tabelaVolta.getSelectionModel().getSelectedItem();
+        List<Voo> voos = new ArrayList<>();
+        voos.add(v);
+        voos.add(v2);
+        for (Voo voo:voos) {
+            if(voo != null)
+            {
+                Passagem p = new Passagem();
+                p.setVoo(voo);
+                COM.comprarPassagem(p);
+            }
+        }
     }
 
     public void voltarTela(ActionEvent actionEvent) {
@@ -65,6 +82,8 @@ public class ConsultaVoosController {
     }
 
     public void realizarConsulta(ActionEvent actionEvent) {
+        tabelaIda.getItems().clear();
+        tabelaVolta.getItems().clear();
         preencheTabelaIda(IDA);
         preencheTabelaVolta(VOLTA);
     }

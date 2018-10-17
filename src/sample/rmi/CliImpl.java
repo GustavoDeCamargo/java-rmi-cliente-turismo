@@ -46,4 +46,8 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     public List<String> getCidadesFromServer() throws RemoteException {
         return serv.GetCidades();
     }
+
+    public void comprarPassagem(Passagem p) throws RemoteException {
+        serv.comprarPassagem(p);
+    }
 }
