@@ -12,6 +12,9 @@ import sample.Voo;
 
 import java.util.List;
 
+import static sample.Main.IDA;
+import static sample.Main.VOLTA;
+
 
 public class ConsultaVoosController {
 
@@ -58,4 +61,5 @@ public class ConsultaVoosController {
 
         tabelaVolta.getItems().addAll(FXCollections.observableArrayList(voos));
     }
+
 }

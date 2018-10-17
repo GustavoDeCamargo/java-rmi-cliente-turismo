@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.controllers.ConsultaHospedagemController;
 
+import java.util.List;
+
 public class Main extends Application {
 
     private static Stage stage;
@@ -17,11 +19,18 @@ public class Main extends Application {
 
     private static Scene sample;
 
+    public static List<Voo> IDA;
+    public static List<Voo> VOLTA;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         stage = primaryStage;
+
+        Parent fxmlConsultaVoos = FXMLLoader.load(getClass().getResource("resources/ConsultaVoos.fxml"));
+
+        ConsultaVoos = new Scene(fxmlConsultaVoos);
 
         Parent fxmlCliente = FXMLLoader.load(getClass().getResource("resources/Cliente.fxml"));
         Cliente = new Scene(fxmlCliente);
@@ -29,8 +38,7 @@ public class Main extends Application {
         Parent fxmlConsultaHospedagem = FXMLLoader.load(getClass().getResource("resources/ConsultaHospedagem.fxml"));
         ConsultaHospedagem = new Scene(fxmlConsultaHospedagem);
 
-        Parent fxmlConsultaVoos = FXMLLoader.load(getClass().getResource("resources/ConsultaVoos.fxml"));
-        ConsultaVoos = new Scene(fxmlConsultaVoos);
+
 
         primaryStage.setTitle("Java RMI Cliente");
         primaryStage.setScene(Cliente);

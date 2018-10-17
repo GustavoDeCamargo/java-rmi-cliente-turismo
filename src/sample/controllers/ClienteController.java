@@ -4,18 +4,17 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitMenuButton;
-<<<<<<< HEAD
 import sample.*;
-=======
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
 import sample.Passagem;
 import sample.Retorno;
 import sample.Voo;
->>>>>>> origin/master
 import sample.rmi.CliImpl;
 import sample.rmi.InterfaceServ;
 
@@ -28,6 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
+import static sample.Main.IDA;
+import static sample.Main.VOLTA;
 
 public class ClienteController {
 
@@ -45,8 +46,9 @@ public class ClienteController {
 
     CliImpl com;
 
-    @FXML
     ConsultaVoosController consultaVoosController;
+
+
 
     public void consultarPassagem() throws RemoteException, NotBoundException, AlreadyBoundException {
         Main.changeScreen("ConsultaVoos");
@@ -79,16 +81,23 @@ public class ClienteController {
                 listaIdaVolta.add(voo);
             }
 
-            System.out.println(voo.getNome());
-            System.out.println(voo.getOrigem());
-            System.out.println(voo.getDestino());
-            System.out.println(voo.getData_ida());
-            System.out.println(voo.getData_volta());
-            System.out.println(voo.getCapacidade());
+//            System.out.println(voo.getNome());
+//            System.out.println(voo.getOrigem());
+//            System.out.println(voo.getDestino());
+//            System.out.println(voo.getData_ida());
+//            System.out.println(voo.getData_volta());
+//            System.out.println(voo.getCapacidade());
         }
-        consultaVoosController.preencheTabelaIda(listaIda);
-        consultaVoosController.preencheTabelaVolta(listaIdaVolta);
+        IDA = listaIda;
+        VOLTA = listaIdaVolta;
 
+        System.out.println(IDA);
+        System.out.println(VOLTA);
+
+       // Parent fxmlConsultaHospedagem = FXMLLoader.load(getClass().getResource("resources/ConsultaHospedagem.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/ConsultaVoos.fxml"));
+        ConsultaVoosController controller = loader.getController();
+        controller.preencheTabelaVolta(VOLTA);
     }
     public void consultarHospedagem(){
         Main.changeScreen("ConsultaHospedagem");
@@ -112,5 +121,9 @@ public class ClienteController {
         h_cidade.setItems(FXCollections.observableArrayList((cidades)));
         i_origem.setItems(FXCollections.observableArrayList((cidades)));
         i_destino.setItems(FXCollections.observableArrayList((cidades)));
+    }
+
+    public void setConsultaVoosController(ConsultaVoosController consultaVoosController) {
+        this.consultaVoosController = consultaVoosController;
     }
 }
