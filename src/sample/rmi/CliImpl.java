@@ -62,4 +62,8 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     {
         serv.deletarInteresse(id);
     }
+
+    public List<String> getAllHoteis() throws RemoteException {
+        return serv.getHoteis();
+    }
 }

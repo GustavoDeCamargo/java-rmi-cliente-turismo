@@ -41,7 +41,7 @@ public class ClienteController {
     JFXDatePicker p_data_volta,p_data_ida,h_data_entrada,h_data_saida;
 
     @FXML
-    ComboBox<String> p_origem,p_destino,h_cidade,i_origem,i_destino;
+    ComboBox<String> p_origem,p_destino,h_cidade,i_origem,i_destino,h_hotel;
 
     @FXML
     CheckBox p_somente_ida,i_passagem,i_hospedagem,i_pacote;
@@ -101,7 +101,12 @@ public class ClienteController {
 
     }
     public void consultarHospedagem() throws RemoteException, NotBoundException, AlreadyBoundException {
-        Hospedagem hospedagem = new Hospedagem("",h_cidade.getValue(),Integer.parseInt(h_num_quartos.getText()),Integer.parseInt(h_num_pessoas.getText()));
+        String hotel = null;
+        if(h_hotel.getValue().equals("Hotel"))
+            hotel = "";
+        else
+            hotel = h_hotel.getValue();
+        Hospedagem hospedagem = new Hospedagem(hotel,h_cidade.getValue(),Integer.parseInt(h_num_quartos.getText()),Integer.parseInt(h_num_pessoas.getText()));
         hospedagem.setData_entrada(h_data_entrada.getValue().format(ISO_LOCAL_DATE));
         hospedagem.setData_saida(h_data_saida.getValue().format(ISO_LOCAL_DATE));
         HOSPEDAGEM = hospedagem;
@@ -145,6 +150,7 @@ public class ClienteController {
         h_cidade.setItems(FXCollections.observableArrayList((cidades)));
         i_origem.setItems(FXCollections.observableArrayList((cidades)));
         i_destino.setItems(FXCollections.observableArrayList((cidades)));
+        h_hotel.setItems(FXCollections.observableArrayList(COM.getAllHoteis()));
     }
 
     public void setConsultaVoosController(ConsultaVoosController consultaVoosController) {
