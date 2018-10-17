@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -7,6 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitMenuButton;
+import sample.Main;
+import sample.Passagem;
+import sample.Retorno;
+import sample.Voo;
 import sample.rmi.CliImpl;
 import sample.rmi.InterfaceServ;
 
@@ -36,6 +40,8 @@ public class ClienteController {
     CliImpl com;
 
     public void consultarPassagem() throws RemoteException, NotBoundException, AlreadyBoundException {
+        Main.changeScreen("ConsultaVoos");
+
         // Origem,Destino e data ida do Voo
         // Voo e numeroPessoas da Passagem
         Passagem p = new Passagem();
@@ -58,7 +64,7 @@ public class ClienteController {
 
     }
     public void consultarHospedagem(){
-
+        Main.changeScreen("ConsultaHospedagem");
     }
     public void consultarPacote(){
 

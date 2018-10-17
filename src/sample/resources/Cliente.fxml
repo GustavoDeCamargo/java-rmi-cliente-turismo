@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ClienteController">
    <children>
       <JFXTextField id="num_pessoas" fx:id="p_num_pessoas" layoutX="38.0" layoutY="373.0" prefHeight="25.0" prefWidth="177.0" promptText="Numero de pessoas" />
       <Text layoutX="305.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta Cliente">
