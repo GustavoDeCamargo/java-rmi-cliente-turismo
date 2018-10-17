@@ -5,9 +5,8 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -26,18 +25,6 @@
          </cursor></JFXButton>
       <JFXDatePicker id="p_data_ida" fx:id="p_data_ida" layoutX="38.0" layoutY="319.0" prefHeight="28.0" prefWidth="191.0" promptText="Data Ida" />
       <JFXDatePicker id="p_data_volta" fx:id="p_data_volta" layoutX="38.0" layoutY="268.0" prefHeight="28.0" prefWidth="191.0" promptText="Data Volta" />
-      <SplitMenuButton id="p_destino" fx:id="p_destino" layoutX="38.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Destino">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </SplitMenuButton>
-      <SplitMenuButton id="p_origem" fx:id="p_origem" layoutX="38.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Origem">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </SplitMenuButton>
       <Separator layoutX="35.0" layoutY="69.0" prefHeight="0.0" prefWidth="765.0" />
       <JFXTextField fx:id="h_num_pessoas" layoutX="290.0" layoutY="373.0" prefHeight="25.0" prefWidth="177.0" promptText="Numero de pessoas" />
       <JFXButton fx:id="h_botaoConsultar" layoutX="290.0" layoutY="434.0" onAction="#consultarHospedagem" prefHeight="36.0" prefWidth="177.0" style="-fx-background-color: #5a5a5a;" text="Consultar Hospedagem" textFill="WHITE">
@@ -46,20 +33,8 @@
          </cursor></JFXButton>
       <JFXDatePicker fx:id="h_data_entrada" layoutX="290.0" layoutY="214.0" prefHeight="28.0" prefWidth="191.0" promptText="Data Entrada" />
       <JFXDatePicker fx:id="h_data_saida" layoutX="290.0" layoutY="268.0" prefHeight="28.0" prefWidth="191.0" promptText="Data Saída" />
-      <SplitMenuButton fx:id="h_hotel" layoutX="290.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Hotel">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </SplitMenuButton>
       <JFXTextField fx:id="h_num_quartos" layoutX="290.0" layoutY="321.0" prefHeight="25.0" prefWidth="177.0" promptText="Numero de Quartos" />
       <CheckBox fx:id="p_somente_ida" layoutX="38.0" layoutY="219.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Somente Ida" />
-      <SplitMenuButton fx:id="h_cidade" layoutX="290.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="Cidade">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </SplitMenuButton>
       <JFXButton fx:id="botao_consultar_pacote" layoutX="38.0" layoutY="486.0" onAction="#consultarPacote" prefHeight="36.0" prefWidth="428.0" style="-fx-background-color: #5a5a5a;" text="Consultar Pacote (Passagem + Hospedagem)" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -74,23 +49,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <SplitMenuButton fx:id="i_destino" layoutX="526.0" layoutY="229.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Destino">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </SplitMenuButton>
       <JFXTextField fx:id="i_precoMaximo" layoutX="526.0" layoutY="282.0" prefHeight="25.0" prefWidth="285.0" promptText="Preço Máximo" />
       <Text layoutX="563.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receber Notificação">
          <font>
             <Font size="23.0" />
          </font>
       </Text>
-      <SplitMenuButton fx:id="i_origem" layoutX="526.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Origem">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </SplitMenuButton>
+      <ComboBox fx:id="p_origem" layoutX="38.0" layoutY="109.0" prefHeight="25.0" prefWidth="191.0" promptText="Origem" />
+      <ComboBox fx:id="p_destino" layoutX="38.0" layoutY="162.0" prefHeight="25.0" prefWidth="191.0" promptText="Destino" />
+      <ComboBox fx:id="h_hotel" layoutX="290.0" layoutY="162.0" prefHeight="25.0" prefWidth="191.0" promptText="Hotel" />
+      <ComboBox fx:id="h_cidade" layoutX="290.0" layoutY="109.0" prefHeight="25.0" prefWidth="191.0" promptText="Cidade" />
+      <ComboBox fx:id="i_origem" layoutX="526.0" layoutY="162.0" prefHeight="25.0" prefWidth="285.0" promptText="Origem" />
+      <ComboBox fx:id="i_destino" layoutX="526.0" layoutY="230.0" prefHeight="25.0" prefWidth="285.0" promptText="Destino" />
    </children>
 </AnchorPane>
