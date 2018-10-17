@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jfoenix-0.0.0-SNAPSHOT-retrolambda">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jfoenix-0.0.0-SNAPSHOT-retrolambda.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jfoenix-8.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.15.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
