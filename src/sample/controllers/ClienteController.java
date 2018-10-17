@@ -78,7 +78,13 @@ public class ClienteController {
                 listaIda.add(voo);
             }
             else{
-                listaIdaVolta.add(voo);
+                if(voo.getData_ida().equals(data_volta) || voo.getData_volta().equals(data_volta))
+                {
+                    listaIdaVolta.add(voo);
+                }
+                else if(voo.getData_ida().equals(v.getData_ida()) || voo.getData_volta().equals(v.getData_volta())){
+                    listaIda.add(voo);
+                }
             }
 
 //            System.out.println(voo.getNome());
@@ -94,10 +100,6 @@ public class ClienteController {
         System.out.println(IDA);
         System.out.println(VOLTA);
 
-       // Parent fxmlConsultaHospedagem = FXMLLoader.load(getClass().getResource("resources/ConsultaHospedagem.fxml"));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/ConsultaVoos.fxml"));
-        ConsultaVoosController controller = loader.getController();
-        controller.preencheTabelaVolta(VOLTA);
     }
     public void consultarHospedagem(){
         Main.changeScreen("ConsultaHospedagem");

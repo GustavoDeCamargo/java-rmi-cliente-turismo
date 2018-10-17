@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -62,4 +64,8 @@ public class ConsultaVoosController {
         tabelaVolta.getItems().addAll(FXCollections.observableArrayList(voos));
     }
 
+    public void realizarConsulta(ActionEvent actionEvent) {
+        preencheTabelaIda(IDA);
+        preencheTabelaVolta(VOLTA);
+    }
 }

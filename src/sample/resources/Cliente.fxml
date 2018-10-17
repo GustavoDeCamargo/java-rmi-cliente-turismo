@@ -7,6 +7,8 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -41,16 +43,16 @@
          </cursor>
       </JFXButton>
       <Separator layoutX="501.0" layoutY="89.0" orientation="VERTICAL" prefHeight="438.0" prefWidth="0.0" />
-      <CheckBox fx:id="i_passagem" layoutX="522.0" layoutY="443.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Passagem" />
-      <CheckBox fx:id="i_hospedagem" layoutX="632.0" layoutY="444.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Hospedagem" />
-      <CheckBox fx:id="i_pacote" layoutX="750.0" layoutY="444.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Pacote" />
-      <JFXButton fx:id="botao_interesse" layoutX="522.0" layoutY="486.0" onAction="#demonstrarInteresse" prefHeight="36.0" prefWidth="292.0" style="-fx-background-color: #5a5a5a;" text="Demonstrar Interesse" textFill="WHITE">
+      <CheckBox fx:id="i_passagem" layoutX="522.0" layoutY="398.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Passagem" />
+      <CheckBox fx:id="i_hospedagem" layoutX="632.0" layoutY="399.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Hospedagem" />
+      <CheckBox fx:id="i_pacote" layoutX="750.0" layoutY="399.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="94.0" text="Pacote" />
+      <JFXButton fx:id="botao_interesse" layoutX="522.0" layoutY="434.0" onAction="#demonstrarInteresse" prefHeight="36.0" prefWidth="292.0" style="-fx-background-color: #5a5a5a;" text="Demonstrar Interesse" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXTextField fx:id="i_precoMaximo" layoutX="526.0" layoutY="282.0" prefHeight="25.0" prefWidth="285.0" promptText="Preço Máximo" />
-      <Text layoutX="563.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receber Notificação">
+      <JFXTextField fx:id="i_precoMaximo" layoutX="525.0" layoutY="215.0" prefHeight="25.0" prefWidth="285.0" promptText="Preço Máximo" />
+      <Text layoutX="566.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receber Notificação">
          <font>
             <Font size="23.0" />
          </font>
@@ -59,7 +61,19 @@
       <ComboBox fx:id="p_destino" layoutX="38.0" layoutY="162.0" prefHeight="25.0" prefWidth="191.0" promptText="Destino" />
       <ComboBox fx:id="h_hotel" layoutX="290.0" layoutY="162.0" prefHeight="25.0" prefWidth="191.0" promptText="Hotel" />
       <ComboBox fx:id="h_cidade" layoutX="290.0" layoutY="109.0" prefHeight="25.0" prefWidth="191.0" promptText="Cidade" />
-      <ComboBox fx:id="i_origem" layoutX="526.0" layoutY="162.0" prefHeight="25.0" prefWidth="285.0" promptText="Origem" />
-      <ComboBox fx:id="i_destino" layoutX="526.0" layoutY="230.0" prefHeight="25.0" prefWidth="285.0" promptText="Destino" />
+      <ComboBox fx:id="i_origem" layoutX="525.0" layoutY="109.0" prefHeight="25.0" prefWidth="285.0" promptText="Origem" />
+      <ComboBox fx:id="i_destino" layoutX="526.0" layoutY="162.0" prefHeight="25.0" prefWidth="285.0" promptText="Destino" />
+      <TableView layoutX="522.0" layoutY="261.0" prefHeight="121.0" prefWidth="292.0">
+        <columns>
+          <TableColumn fx:id="i_origemColum" prefWidth="122.0" text="Origem" />
+          <TableColumn fx:id="i_destinoColum" prefWidth="105.0" text="Destino" />
+            <TableColumn fx:id="i_precoColum" prefWidth="64.0" text="Preço" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="botao_desinteresse" layoutX="523.0" layoutY="486.0" onAction="#retirarInteresse" prefHeight="36.0" prefWidth="292.0" style="-fx-background-color: #5a5a5a;" text="Excluir Interesse" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>
