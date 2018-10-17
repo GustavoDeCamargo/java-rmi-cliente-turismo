@@ -1,11 +1,16 @@
 package sample.controllers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Main;
+import sample.Voo;
+
+import java.util.List;
 
 
 public class ConsultaVoosController {
@@ -26,5 +31,31 @@ public class ConsultaVoosController {
 
     public void voltarTela(ActionEvent actionEvent) {
         Main.changeScreen("Back");
+    }
+
+    public void preencheTabelaIda(List<Voo> voos){
+        ida_nomeColum.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        ida_origemColum.setCellValueFactory(new PropertyValueFactory<>("origem"));
+        ida_destinoColum.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        ida_dataIdaColum.setCellValueFactory(new PropertyValueFactory<>("data_ida"));
+        ida_dataVoltaColum.setCellValueFactory(new PropertyValueFactory<>("data_volta"));
+        ida_capacidadeColum.setCellValueFactory(new PropertyValueFactory<>("capacidade"));
+        ida_vendidosColum.setCellValueFactory(new PropertyValueFactory<>("vendidos"));
+        ida_precoColum.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+        tabelaIda.getItems().addAll(FXCollections.observableArrayList(voos));
+    }
+
+    public void preencheTabelaVolta(List<Voo> voos){
+        volta_nomeColum.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        volta_origemColum.setCellValueFactory(new PropertyValueFactory<>("origem"));
+        volta_destinoColum.setCellValueFactory(new PropertyValueFactory<>("destino"));
+        volta_dataIdaColum.setCellValueFactory(new PropertyValueFactory<>("data_ida"));
+        volta_dataVoltaColum.setCellValueFactory(new PropertyValueFactory<>("data_volta"));
+        volta_capacidadeColum.setCellValueFactory(new PropertyValueFactory<>("capacidade"));
+        volta_vendidosColum.setCellValueFactory(new PropertyValueFactory<>("vendidos"));
+        volta_precoColum.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+        tabelaVolta.getItems().addAll(FXCollections.observableArrayList(voos));
     }
 }

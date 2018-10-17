@@ -17,6 +17,7 @@ public class Main extends Application {
 
     private static Scene sample;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
