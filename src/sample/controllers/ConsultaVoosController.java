@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import sample.Main;
 
 
 public class ConsultaVoosController {
@@ -18,5 +19,9 @@ public class ConsultaVoosController {
     JFXButton botaoComprarPassagem;
 
     public void comprarPassagem(ActionEvent actionEvent) {
+    }
+
+    public void voltarTela(ActionEvent actionEvent) {
+        Main.changeScreen("Back");
     }
 }

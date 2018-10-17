@@ -49,6 +49,9 @@ public class Main extends Application {
             case "ConsultaVoos":
                 stage.setScene(ConsultaVoos);
                 break;
+            case "Back":
+                stage.setScene(Cliente);
+                break;
         }
     }
 }
