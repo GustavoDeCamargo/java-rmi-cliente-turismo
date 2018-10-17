@@ -16,6 +16,7 @@ public class Main extends Application {
     private static Scene Cliente;
     private static Scene ConsultaHospedagem;
     private static Scene ConsultaVoos;
+    private static Scene ConsultaPacote;
 
     private static Scene sample;
 
@@ -41,7 +42,8 @@ public class Main extends Application {
         Parent fxmlConsultaHospedagem = FXMLLoader.load(getClass().getResource("resources/ConsultaHospedagem.fxml"));
         ConsultaHospedagem = new Scene(fxmlConsultaHospedagem);
 
-
+        Parent fxmlConsultaPacote = FXMLLoader.load(getClass().getResource("resources/ConsultaPacote.fxml"));
+        ConsultaPacote = new Scene(fxmlConsultaPacote);
 
         primaryStage.setTitle("Java RMI Cliente");
         primaryStage.setScene(Cliente);
@@ -60,6 +62,9 @@ public class Main extends Application {
                 break;
             case "ConsultaVoos":
                 stage.setScene(ConsultaVoos);
+                break;
+            case "ConsultaPacote":
+                stage.setScene(ConsultaPacote);
                 break;
             case "Back":
                 stage.setScene(Cliente);

@@ -108,8 +108,15 @@ public class ClienteController {
         HOTEIS = COM.consultarServidor("Hospedagem",null,hospedagem).getHoteis();
         Main.changeScreen("ConsultaHospedagem");
     }
-    public void consultarPacote(){
+    public void consultarPacote() throws RemoteException, NotBoundException, AlreadyBoundException{
+        Hospedagem hospedagem = new Hospedagem("",h_cidade.getValue(),Integer.parseInt(h_num_quartos.getText()),Integer.parseInt(h_num_pessoas.getText()));
+        hospedagem.setData_entrada(h_data_entrada.getValue().format(ISO_LOCAL_DATE));
+        hospedagem.setData_saida(h_data_saida.getValue().format(ISO_LOCAL_DATE));
+        HOSPEDAGEM = hospedagem;
+        HOTEIS = COM.consultarServidor("Hospedagem",null,hospedagem).getHoteis();
 
+
+        Main.changeScreen("ConsultaPacote");
     }
     public void demonstrarInteresse() throws RemoteException, NotBoundException, AlreadyBoundException {
         Integer tipo_interesse;
