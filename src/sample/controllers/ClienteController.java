@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SplitMenuButton;
-import sample.Main;
-import sample.Passagem;
-import sample.Retorno;
-import sample.Voo;
+import sample.*;
 import sample.rmi.CliImpl;
 import sample.rmi.InterfaceServ;
 
@@ -26,7 +23,7 @@ import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
 public class ClienteController {
 
     @FXML
-    JFXTextField p_num_pessoas;
+    JFXTextField p_num_pessoas,i_precoMaximo;
 
     @FXML
     JFXDatePicker p_data_volta,p_data_ida;
@@ -69,8 +66,10 @@ public class ClienteController {
     public void consultarPacote(){
 
     }
-    public void demonstrarInteresse(){
-
+    public void demonstrarInteresse() throws RemoteException, NotBoundException, AlreadyBoundException {
+        Interesse i = new Interesse(null,null,1,
+                i_origem.getValue(),i_destino.getValue(),Double.parseDouble(i_precoMaximo.getText()));
+         com.registrarInteresse(i);
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

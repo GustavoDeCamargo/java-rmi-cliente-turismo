@@ -6,6 +6,7 @@
 //Assinado a dupla: Brenno, Gustavo e Mateus.
 package sample.rmi;
 
+import sample.Interesse;
 import sample.Passagem;
 import sample.Retorno;
 import sample.Voo;
@@ -30,6 +31,10 @@ public class CliImpl extends UnicastRemoteObject implements InterfaceCli {
     
     public Retorno consultarServidor(String tipoConsulta,Passagem p) throws RemoteException, AlreadyBoundException, NotBoundException {
         return serv.consultar(tipoConsulta,p);
+    }
+
+    public void registrarInteresse(Interesse i) throws RemoteException, NotBoundException, AlreadyBoundException {
+        serv.registrarInteresse(i,this);
     }
 
     @Override
