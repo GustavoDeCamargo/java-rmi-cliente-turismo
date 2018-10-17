@@ -15,28 +15,18 @@
             <Font size="29.0" />
          </font>
       </Text>
-      <TableView fx:id="tabelaIda" layoutX="24.0" layoutY="113.0" prefHeight="408.0" prefWidth="375.0">
+      <TableView fx:id="tabelaIda" layoutX="23.0" layoutY="83.0" prefHeight="198.0" prefWidth="789.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="ida_nomeColum" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="ida_origemColum" prefWidth="175.0" text="Origem" />
+            <TableColumn fx:id="ida_destinoColum" prefWidth="179.0" text="Destino" />
+            <TableColumn fx:id="ida_dataIdaColum" prefWidth="69.0" text="Data Ida" />
+            <TableColumn fx:id="ida_dataVoltaColum" prefWidth="74.0" text="Data Volta" />
+            <TableColumn fx:id="ida_capacidadeColum" text="Capacidade" />
+            <TableColumn fx:id="ida_vendidosColum" prefWidth="58.0" text="Vendidos" />
+            <TableColumn fx:id="ida_precoColum" prefWidth="78.0" text="Preço" />
         </columns>
       </TableView>
-      <TableView fx:id="tabelaVolta" layoutX="417.0" layoutY="113.0" prefHeight="408.0" prefWidth="399.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-         </columns>
-      </TableView>
-      <Text layoutX="192.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ida">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Text>
-      <Text layoutX="583.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volta">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Text>
       <JFXButton fx:id="botaoComprarPassagem" layoutX="25.0" layoutY="535.0" onAction="#comprarPassagem" prefHeight="67.0" prefWidth="789.0" style="-fx-background-color: #5a5a5a;" text="Comprar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -45,6 +35,28 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
+      <Text layoutX="23.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ida">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="23.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volta">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tabelaVolta" layoutX="25.0" layoutY="319.0" prefHeight="198.0" prefWidth="789.0">
+         <columns>
+            <TableColumn fx:id="volta_nomeColum" prefWidth="75.0" text="Nome" />
+            <TableColumn fx:id="volta_origemColum" prefWidth="176.0" text="Origem" />
+            <TableColumn fx:id="volta_destinoColum" minWidth="0.0" prefWidth="173.0" text="Destino" />
+            <TableColumn fx:id="volta_dataIdaColum" prefWidth="66.0" text="Data Ida" />
+            <TableColumn fx:id="volta_dataVoltaColum" prefWidth="82.0" text="Data Volta" />
+            <TableColumn fx:id="volta_capacidadeColum" prefWidth="96.0" text="Capacidade" />
+            <TableColumn fx:id="volta_vendidosColum" prefWidth="75.0" text="Vendidos" />
+            <TableColumn fx:id="volta_precoColum" prefWidth="45.0" text="Preço" />
+         </columns>
+      </TableView>
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

@@ -19,8 +19,11 @@
             </Text>
             <TableView fx:id="tabelaHospedagem" layoutX="24.0" layoutY="67.0" prefHeight="454.0" prefWidth="780.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="nomeColum" prefWidth="255.0" text="Nome" />
+                  <TableColumn fx:id="localColum" prefWidth="181.0" text="Local" />
+                  <TableColumn fx:id="vagasColum" prefWidth="149.0" text="Vagas" />
+                  <TableColumn fx:id="ocupacaoColum" prefWidth="74.0" text="Ocupação" />
+                  <TableColumn fx:id="precoColum" prefWidth="120.0" text="Preço" />
                </columns>
             </TableView>
             <JFXButton fx:id="botaoComprarHospedagem" layoutX="25.0" layoutY="535.0" onAction="#comprarHospedagem" prefHeight="67.0" prefWidth="789.0" style="-fx-background-color: #5a5a5a;" text="Comprar" textFill="WHITE">
